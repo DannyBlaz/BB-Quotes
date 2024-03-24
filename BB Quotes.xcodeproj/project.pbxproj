@@ -18,6 +18,7 @@
 		7BC7244E2BAFC6980038DC23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7244D2BAFC6980038DC23 /* Constants.swift */; };
 		7BC724502BAFCD7C0038DC23 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7244F2BAFCD7C0038DC23 /* ViewModel.swift */; };
 		7BC724522BAFE2C60038DC23 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC724512BAFE2C60038DC23 /* QuoteView.swift */; };
+		7BC724542BB0BCC90038DC23 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC724532BB0BCC90038DC23 /* CharacterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		7BC7244D2BAFC6980038DC23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7BC7244F2BAFCD7C0038DC23 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7BC724512BAFE2C60038DC23 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		7BC724532BB0BCC90038DC23 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				7BC724372BAF93C70038DC23 /* BB_QuotesApp.swift */,
 				7BC724392BAF93C70038DC23 /* ContentView.swift */,
 				7BC724512BAFE2C60038DC23 /* QuoteView.swift */,
+				7BC724532BB0BCC90038DC23 /* CharacterView.swift */,
 				7BC7244F2BAFCD7C0038DC23 /* ViewModel.swift */,
 				7BC7244B2BAFA4200038DC23 /* FetchController.swift */,
 				7BC724472BAF9EED0038DC23 /* Quote.swift */,
@@ -165,6 +168,7 @@
 				7BC724522BAFE2C60038DC23 /* QuoteView.swift in Sources */,
 				7BC7244C2BAFA4200038DC23 /* FetchController.swift in Sources */,
 				7BC7244A2BAF9F6B0038DC23 /* Character.swift in Sources */,
+				7BC724542BB0BCC90038DC23 /* CharacterView.swift in Sources */,
 				7BC7244E2BAFC6980038DC23 /* Constants.swift in Sources */,
 				7BC724502BAFCD7C0038DC23 /* ViewModel.swift in Sources */,
 			);
@@ -303,6 +307,7 @@
 				DEVELOPMENT_TEAM = 6W8XTBH64B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Say My Name";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +337,7 @@
 				DEVELOPMENT_TEAM = 6W8XTBH64B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Say My Name";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -10,6 +10,8 @@ import SwiftUI
 struct QuoteView: View {
     @StateObject private var viewModel = ViewModel(controller: FetchController())
     
+    @State private var showCharacterInfo = false
+    
     let show: String
     
     var body: some View {
@@ -17,57 +19,61 @@ struct QuoteView: View {
             
             // BackgroundImage
             ZStack {
-                Image(show.lowercased().filter { $0 != " " })
+                Image(show.lowerNoSpaces)
                     .resizable()
                     .frame(width: geo.size.width * 2.7, height: geo.size.height * 1.2)
-                
                 VStack {
-                    Spacer(minLength: 140)
-                    
-                    switch viewModel.status {
-                    case .success(let data):
-                        // Quote
-                        Text("\"\(data.quote.quote)\"")
-                            .minimumScaleFactor(0.5)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(.black.opacity(0.5))
-                            .cornerRadius(25)
-                            .padding(.horizontal)
+                    VStack {
+                        Spacer(minLength: 140)
                         
-                        // Character
-                        ZStack(alignment: .bottom) {
-//                            Image("jessepinkman")
-//                                .resizable()
-//                                .scaledToFill()
-                            AsyncImage(url: data.character.images[0]) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            } placeholder: {
-                                ProgressView()
+                        switch viewModel.status {
+                        case .success(let data):
+                            // Quote
+                            Text("\"\(data.quote.quote)\"")
+                                .minimumScaleFactor(0.5)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(.black.opacity(0.5))
+                                .cornerRadius(25)
+                                .padding(.horizontal)
+                            
+                            // Character
+                            ZStack(alignment: .bottom) {
+                                AsyncImage(url: data.character.images[0]) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: geo.size.width/1.1, height: geo.size.height/1.8)
+                                .onTapGesture {
+                                    showCharacterInfo.toggle()
+                                }
+                                .sheet(isPresented: $showCharacterInfo) {
+                                    CharacterView(show: show, character: data.character)
+                                }
+                                
+                                
+                                Text(data.quote.character)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .frame(maxWidth: .infinity)
+                                    .background(.ultraThinMaterial)
                             }
                             .frame(width: geo.size.width/1.1, height: geo.size.height/1.8)
-
+                            .cornerRadius(80)
                             
-                            Text(data.quote.character)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .frame(maxWidth: .infinity)
-                                .background(.ultraThinMaterial)
+                        case .fetching:
+                            ProgressView()
+                            
+                        default:
+                            EmptyView()
                         }
-                        .frame(width: geo.size.width/1.1, height: geo.size.height/1.8)
-                        .cornerRadius(80)
                         
-                    case .fetching:
-                        ProgressView()
-                        
-                    default:
-                        EmptyView()
+                        Spacer()
                     }
-                    
-                    Spacer()
                     
                     // Gen Random Quote
                     Button{
@@ -79,9 +85,9 @@ struct QuoteView: View {
                             .font(.title)
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color("BreakingBadGreen"))
+                            .background(Color("\(show.noSpaces)Button"))
                             .cornerRadius(7)
-                            .shadow(color: Color("BreakingBadYellow"), radius: 2)
+                            .shadow(color: Color("\(show.noSpaces)Shadow"), radius: 2)
                     }
                     
                     Spacer(minLength: 180)
@@ -95,6 +101,6 @@ struct QuoteView: View {
 }
 
 #Preview {
-    QuoteView(show: "Better Call Saul")
+    QuoteView(show: Constants.bbName)
         .preferredColorScheme(.dark)
 }

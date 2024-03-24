@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            QuoteView(show: "Breaking Bad")
+            QuoteView(show: Constants.bbName)
                 .tabItem {
                     Label("Breaking Bad", systemImage: "tortoise")
                 }
             
-            Text("Better Call Saul View")
+            QuoteView(show: Constants.bcsName)
                 .tabItem {
                     Label("Better Call Saul", systemImage: "briefcase")
                 }
